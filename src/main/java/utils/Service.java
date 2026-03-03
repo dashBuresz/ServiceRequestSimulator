@@ -1,11 +1,14 @@
+package utils;
 import java.util.Random;
 import java.util.random.RandomGenerator;
 
 public class Service {
-    enum ServiceType {
+    public enum ServiceType {
         INT_SERVICE,
         STRING_SERVICE
     }
+    int intOutput;
+    String stringOutput;
     private ServiceType type;
     public Service(ServiceType serviceType)
     {
@@ -14,7 +17,8 @@ public class Service {
     public int generateIntOutput()
     {
         Random random = new Random();
-        return random.nextInt();
+        intOutput = random.nextInt();
+        return intOutput;
     }
     public String generateStringOutput(int length)
     {
@@ -27,6 +31,8 @@ public class Service {
             int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
             buffer.append((char) randomLimitedInt);
         }
-        return buffer.toString();
+        stringOutput = buffer.toString();
+        return stringOutput;
     }
+    public ServiceType type(){return type;}
 }
