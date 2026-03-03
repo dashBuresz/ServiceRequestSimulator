@@ -7,8 +7,6 @@ public class Service {
         INT_SERVICE,
         STRING_SERVICE
     }
-    int intOutput;
-    String stringOutput;
     private ServiceType type;
     public Service(ServiceType serviceType)
     {
@@ -17,11 +15,11 @@ public class Service {
     public int generateIntOutput()
     {
         Random random = new Random();
-        intOutput = random.nextInt();
-        return intOutput;
+        return random.nextInt();
     }
-    public String generateStringOutput(int length)
+    public String generateStringOutput()
     {
+        int length = 10;  
         int leftLimit = 97;     // 'a'
         int rightLimit = 122;   // 'z'
         Random random = new Random();
@@ -31,8 +29,7 @@ public class Service {
             int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
             buffer.append((char) randomLimitedInt);
         }
-        stringOutput = buffer.toString();
-        return stringOutput;
+        return buffer.toString();
     }
     public ServiceType type(){return type;}
 }
